@@ -8,10 +8,14 @@
  */
 int main(void)
 {
-	char mystring[] = "abcdefghijklmnopqrst";
+	char letters[26] = "abcdefghijklmnopqrstuvwxyz";
+	int i;
 
-	for (int i = 0; mystring[i] != '\0'; i++)
+	for (i = 0; i <= 26; i++)
 	{
-		putchar(mystring[i]);
+		putchar(letters[i]);
 	}
+	putchar('\n');
+
+	return (0);
 }
