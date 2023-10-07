@@ -9,7 +9,6 @@
 int main(void)
 {
 	int i;
-	int number = 9;
 
 	for (i = 0; i < 9; i++)
 	{
