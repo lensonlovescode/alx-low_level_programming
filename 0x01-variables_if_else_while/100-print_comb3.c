@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 /**
  * main - this is just the main function
  *
@@ -11,8 +12,9 @@ int main(void)
 	int i;
 
 	for (i = 0; i < 100; i++)
-		{
-			putchar(i);
-		}
+	{
+		printf("%d\n", i);
+	}
+
 	return (0);
 }
