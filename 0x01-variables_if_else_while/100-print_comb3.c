@@ -10,12 +10,23 @@
 int main(void)
 {
 	int i;
+	int j;
 
-	for (i = 0; i < 100; i++)
+	for (i = 0; i < 10; i++)
 	{
-		putchar(i + '0');
-		putchar('\n');
+	for (j = i; j < 10; j++)
+	{
+		if (i != j)
+		{
+			putchar('0' + i);
+			putchar('0' + j);
+		if (i != 8 || j != 9)
+		{
+			putchar(',');
+			putchar(' ');
+		}
+		}
 	}
-	putchar('\n');
+	}
 	return (0);
 }
