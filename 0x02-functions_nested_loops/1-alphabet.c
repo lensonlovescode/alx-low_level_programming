@@ -1,12 +1,19 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
- * main - check the code
+ * print_alphabet - this will print the alphabet characters in lower case
  *
- * Return: Always 0.
+ * Return: Always 0
  */
-int main(void)
+
+void print_alphabet(void)
 {
-	print_alphabet();
-	return (0);
+	char alphabets[26] = "abcdefghijklmnopqrstuvwxyz";
+	int i;
+
+	for (i = 0; i < 26; i++)
+	{
+		_putchar(alphabets[i]);
+	}
 }
