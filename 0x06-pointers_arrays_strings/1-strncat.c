@@ -20,7 +20,7 @@ char *_strncat(char *dest, char *src, int n)
 
 	len1 = strlen(s1);
 
-	for (i = 0; i <= m; i++)
+	for (i = 0; i < m; i++)
 	{
 		s1[len1 + i] = s2[i];
 	}
