@@ -19,10 +19,9 @@ char *_strncpy(char *dest, char *src, int n)
 	{
 		p[i] = q[i];
 	}
-	while (i < n)
+	for ( ; i < n; i++)
 	{
 		p[sizeof(p)] = '\0';
-		i++;
 	}
 	return (p);
 }
