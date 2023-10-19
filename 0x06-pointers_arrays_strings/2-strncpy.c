@@ -21,7 +21,7 @@ char *_strncpy(char *dest, char *src, int n)
 	}
 	for ( ; i < n; i++)
 	{
-		p[sizeof(p)] = '\0';
+		p[i] = '\0';
 	}
 	return (p);
 }
