@@ -1,19 +1,19 @@
 #include "main.h"
 /**
 * *string_toupper - this changes all lowercase letters of a string to uppercase
-* @*: this is the sting to be reversed
+* @strn: this is the sting to be reversed
 * return: this will return the uppercase letter's string
 */
-char *string_toupper(char *)
+char *string_toupper(char *strn)
 {
     int i;
     char ch;
 
-    for (i = 0; i < n; i++)
+    for (i = 0; i != '\0'; i++)
     {
-        if ('a' > *[i] < 'z')
+        if ('a' > str[i] < 'z')
         {
-            ch = *[i] - 32;
+            ch = str[i] - 32;
         }
     }
     return (ch);
