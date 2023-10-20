@@ -11,7 +11,7 @@ char *string_toupper(char *strn)
 
     for (i = 0; i != '\0'; i++)
     {
-        if ('a' > strn[i] < 'z')
+        if (97 >= strn[i] <= 122)
         {
             ch = strn[i] - 32;
         }
