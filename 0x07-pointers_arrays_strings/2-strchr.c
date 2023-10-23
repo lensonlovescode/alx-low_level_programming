@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stddef.h>
 /**
  * _strchr - this locates the first ocurrence of a character
  * @s: this is the string to be scouted
@@ -17,5 +16,5 @@ char *_strchr(char *s, char c)
 			return (s + i);
 		}
 	}
-	return (NULL);
+	return (0);
 }
