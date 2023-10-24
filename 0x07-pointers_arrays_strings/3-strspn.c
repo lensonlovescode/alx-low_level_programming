@@ -13,8 +13,8 @@ unsigned int _strspn(char *s, char *accept)
 {
 	unsigned int i, j;
 	unsigned int length = 0;
-	size_t len1 = sizeof(s);
-	size_t len2 = sizeof(accept);
+	size_t len1 = strlen(s);
+	size_t len2 = strlen(accept);
 
 	for (i = 0; i < len1; i++)
 	{
