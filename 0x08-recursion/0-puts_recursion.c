@@ -1,5 +1,6 @@
 #include "main.h"
 #include <string.h>
+#include <stdio.h>
 
 /**
  *  _puts_recursion - this prints the string followed by a new line
@@ -7,13 +8,17 @@
  */
 void _puts_recursion(char *s)
 {
-	int length = strlen(s);
+	unsigned int i = 0;
 
-	if (s != '\0';)
+	if (*s != '\0')
 	{
-		return (s[i]);
-	_puts_recursion(s++);
+		_putchar (s[i]);
+		s++;
+		i++;
+		_puts_recursion(s);
 	}
-
-	return (s - length);
+	else
+	{
+		_putchar ('\n');
+	}
 }
