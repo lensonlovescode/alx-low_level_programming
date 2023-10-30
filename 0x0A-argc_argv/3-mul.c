@@ -3,8 +3,8 @@
 #include <stdio.h>
 /**
  * main - this is the main function
- * @a: this is the first parameter
- * @b: this is the second parameter
+ * @argc: this is the number of arguments
+ * @argv: this are the arguments passed
  * @product: this is the product of the two parameters
  * Return: this will return 0 if both parameters are present
  * and will return 1 if one of or both parameters are missing
