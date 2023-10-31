@@ -24,10 +24,6 @@ char *_strdup(const char *str)
 			ptr[i] = str[i];
 			ptr[length] = '\0';
 		}
-		if (str[length] > ptr[length])
-		{
-			return (NULL);
-		}
 	}
 	return (ptr);
 	if (str == NULL)
