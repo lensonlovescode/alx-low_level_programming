@@ -18,10 +18,11 @@ char *_strdup(const char *str)
 
 	if (str != NULL)
 	{
-		ptr = (char *)malloc(length * (sizeof(char) + 1));
+		ptr = (char *)malloc((length + 1) * sizeof(char));
 		for (i = 0; i < length; i++)
 		{
 			ptr[i] = str[i];
+			ptr[length] = '\0';
 		}
 		if (str[length] > ptr[length])
 		{
