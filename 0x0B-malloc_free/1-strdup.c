@@ -3,7 +3,12 @@
 #include <stdio.h>
 #include <string.h>
 /**
- *
+ * _strdup - this  returns a pointer to a newly allocated space in memory,
+ * which contains a copy of the string given as a parameter
+ * @str: this is the string to be duplicated
+ * Return: this will return the pointer to the string in the
+ *newly allocated memory
+ * and null if the string points to null or if memory is insuficient
  */
 char *_strdup(const char *str)
 {
@@ -13,7 +18,7 @@ char *_strdup(const char *str)
 
 	if (str != NULL)
 	{
-		ptr = (char *)malloc(length*sizeof(char));
+		ptr = (char *)malloc(length * sizeof(char));
 		for (i = 0; i < length; i++)
 		{
 			ptr[i] = str[i];
