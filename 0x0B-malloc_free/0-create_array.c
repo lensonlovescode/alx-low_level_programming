@@ -24,14 +24,14 @@ char *create_array(unsigned int size, char c)
 				ptr[i] = c;
 			}
 		}
+		else
+		{
+			return (NULL);
+		}
 	}
-		return (ptr);
-	if (ptr == NULL)
+	else
 	{
 		return (NULL);
 	}
-	if (size == 0)
-	{
-		return (NULL);
-	}
+	return (ptr);
 }
