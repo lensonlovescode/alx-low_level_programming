@@ -29,10 +29,10 @@ char *_strdup(const char *str)
 			return (NULL);
 		}
 	}
+	return (ptr);
 	if (str == NULL)
 	{
 		return (NULL);
 	}
-	return (ptr);
 	free(ptr);
 }
