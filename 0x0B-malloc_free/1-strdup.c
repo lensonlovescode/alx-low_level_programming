@@ -28,7 +28,11 @@ char *_strdup(const char *str)
 			ptr[i] = str[i];
 			ptr[length] = '\0';
 		}
+		if (ptr == NULL)
+		{
+			return (NULL);
+		}
 	}
 	return (ptr);
-	free (ptr);
+	free(ptr);
 }
