@@ -10,7 +10,7 @@
  *newly allocated memory
  * and null if the string points to null or if memory is insuficient
  */
-char *_strdup(const char *str)
+char *_strdup(char *str)
 {
 	char *ptr;
 	int i;
@@ -26,8 +26,8 @@ char *_strdup(const char *str)
 		for (i = 0; i < length; i++)
 		{
 			ptr[i] = str[i];
-			ptr[length] = '\0';
 		}
+		ptr[length] = '\0';
 		if (ptr == NULL)
 		{
 			return (NULL);
