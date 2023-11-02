@@ -33,7 +33,7 @@ char *str_concat(char *s1, char *s2)
 				ptr[len1 + j + 1] = '\0';
 			}
 		}
-		else
+		else if (s1 == NULL || s2 == NULL)
 		{
 			return (NULL);
 		}
