@@ -31,6 +31,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	len1 = strlen(s1);
 	ptr = malloc(len1 + n + 1);
 
+	if (ptr == NULL)
+	{
+		return (NULL);
+	}
 	if (s1 != NULL && s2 != NULL)
 	{
 		for (i = 0; i < len1; i++)
