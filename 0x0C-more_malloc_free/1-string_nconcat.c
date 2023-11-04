@@ -39,11 +39,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	if (n >= len2)
 	{
-		for (i = 0; i < len1; i++)
+		for (i = 0; s1[i] != '\0'; i++)
 		{
 			ptr[i] = s1[i];
 		}
-		for (j = 0; j < len2; j++)
+		for (j = 0; s2[j] != '\0'; j++)
 		{
 			ptr[len1 + j] = s2[j];
 		}
