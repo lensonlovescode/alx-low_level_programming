@@ -9,8 +9,8 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	int i;
-	int len1;
-	unsigned int len2;
+	int len1 = 0;
+	unsigned int len2 = 0;
 	char *ptr;
 	unsigned int j;
 
