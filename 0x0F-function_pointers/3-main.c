@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 4)
 	{
-		printf("Error");
+		printf("Error\n");
 		exit(98);
 	}
 
@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 
 	result = op(num1, num2);
+	printf("%d\n", result);
 
 	return (result);
 }
