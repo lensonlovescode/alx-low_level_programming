@@ -10,4 +10,5 @@ void print_numbers(const char *separator, const unsigned int n, ...);
 void printDigits(int number);
 int countDigits(int number);
 void printString(const char *str);
+void print_all(const char * const format, ...);
 #endif
