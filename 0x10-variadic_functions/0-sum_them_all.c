@@ -3,7 +3,9 @@
 #include <stdio.h>
 #include <stdarg.h>
 /**
- *
+ * sum_them_all - this sums up the given arguments
+ * @n: this is the numbe of arguments to be summed
+ * Return: this will return the sum
  *
  */
 int sum_them_all(const unsigned int n, ...)
@@ -12,6 +14,7 @@ int sum_them_all(const unsigned int n, ...)
 	int x;
 	int sum;
 	va_list args;
+
 	va_start(args, n);
 
 	sum = 0;
