@@ -78,20 +78,22 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 	if (separator != NULL)
 	{
-	for (i = 0; i < n; i++)
-	{
-		if (i != (n - 1))
+		for (i = 0; i < n; i++)
 		{
-		num = va_arg(args, int);
-		printDigits(num);
-		printString(separator);
+			if (i != (n - 1))
+			{
+				num = va_arg(args, int);
+				printDigits(num);
+				printString(separator);
+			}
+			else
+			{
+				num = va_arg(args, int);
+				printDigits(num);
+			}
 		}
-		else
-		{
-			num = va_arg(args, int);
-			printDigits(num);
-		}
+		putchar('\n');
 	}
-	putchar('\n');
-	}
+	else
+		printString("");
 }
