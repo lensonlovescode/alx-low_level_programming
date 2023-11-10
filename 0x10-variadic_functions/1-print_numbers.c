@@ -13,11 +13,22 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 	va_start(args, n);
 
+	if (separator != NULL)
+	{
 	for (i = 0; i < n; i++)
 	{
+		if (i != (n - 1))
+		{
 		num = va_arg(args, int);
 		printDigits(num);
 		printString(separator);
+		}
+		else
+		{
+			num = va_arg(args,int);
+			printDigits(num);
+		}
 	}
 	putchar('\n');
+	}
 }
