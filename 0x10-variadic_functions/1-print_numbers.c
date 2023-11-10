@@ -4,22 +4,21 @@
  * @number: this is the numbe to be printed
  * Return: this will return void
  */
-void printDigits(int number) {
-
-
+void printDigits(int number)
+{
 	int temp = number;
 	int digits = 0;
 	int i;
 	int j;
 	int divisor;
 	int digit;
-	
+
 	if (number < 0)
 	{
 		putchar('-');
 		number = -number;
 	}
-	
+
 	if (number == 0)
 	{
 		putchar('0');
@@ -30,7 +29,7 @@ void printDigits(int number) {
 		temp /= 10;
 		digits++;
 	}
-	
+
 	for (i = digits - 1; i >= 0; i--)
 	{
 		divisor = 1;
@@ -50,7 +49,7 @@ void printDigits(int number) {
 void printString(const char *str)
 {
 	int i;
-	
+
 	if (str != NULL)
 	{
 		for (i = 0; str[i] != '\0'; ++i)
@@ -89,7 +88,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		}
 		else
 		{
-			num = va_arg(args,int);
+			num = va_arg(args, int);
 			printDigits(num);
 		}
 	}
