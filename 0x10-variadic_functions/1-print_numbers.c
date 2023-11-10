@@ -93,6 +93,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 			}
 		}
 		putchar('\n');
+		va_end(args);
 	}
 	else
 		printString("");
