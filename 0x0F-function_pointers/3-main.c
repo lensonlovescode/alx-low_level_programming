@@ -1,25 +1,17 @@
 #include "3-calc.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
+
 /**
- * main - this is the main function
- * @argc: this is the number of arguments
- * @argv: this is the operator symbol
- * @num1: this is the first integer
- * @num2: this is the second integer
- * @result: this is the results of the inal operation
- * @operator: this is the operation symbol
- * @op: this is the operation to be performed which is obtained
- * from the return value of get_op_func
+ * main - ...
+ * @argc: ...
+ * @argv: ...
  *
+ * Return: ...
  */
 int main(int argc, char *argv[])
 {
-	int num1;
-	int num2;
-	int result;
-	char *operator;
-	int (*op)(int, int);
+	int (*oprt)(int, int);
 
 	if (argc != 4)
 	{
@@ -27,17 +19,14 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[3]);
-	operator = argv[2];
-	
-	op = get_op_func(operator);
+	oprt = get_op_func(argv[2]);
 
-	if (op == NULL)
+	if (!oprt)
+	{
 		printf("Error\n");
+		exit(99);
+	}
 
-	result = op(num1, num2);
-	printf("%d\n", result);
-
-	return (result);
+	printf("%d\n", oprt(atoi(argv[1]), atoi(argv[3])));
+	return (0);
 }
