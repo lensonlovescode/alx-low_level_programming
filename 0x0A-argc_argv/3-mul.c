@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
 	int product;
 	int first;
 	int second;
+
 	if (argc <= 2)
 	{
 		printf("Error\n");
