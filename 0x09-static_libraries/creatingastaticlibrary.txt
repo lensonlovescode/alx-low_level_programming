@@ -1,0 +1,22 @@
+gcc -c add.c subtract.c compile until the object files are generated nothing more nothing less
+ar rcs libmathutils.a add.o subtract.o
+	ar atands for archive, it's basically the command to create the library
+
+	The 'r' flag tells it to replace older object files in the library, with the new object files.
+
+	The 'c' flag tells ar to create the library if it doesn't already exist.
+
+ranlib mylib.a
+	After an archive is created, or modified, there is a need to index it. This index is later used by the compiler to speed up symbol-lookup
+	inside the library.
+
+gcc main.c -o myprogram -L. -lmylib
+	this is how to include the library in any program during compilation
+
+	-L.: Tells the compiler to look in the current directory for the library.(this is just the path, replace with absolute path if the library
+	is not in the current directory)
+
+	'-l' flag tells the linker to use the mylib.a library
+
+
+
