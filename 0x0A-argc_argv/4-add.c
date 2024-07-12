@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- *
- *
- *
- *
+ * main - main function
+ * @argc: number of comandline arguments
+ * @argv: array of arguments
+ * Return: returns 0 on success, 1 on failure
  */
 int main(int argc, char *argv[])
 {
@@ -16,13 +16,9 @@ int main(int argc, char *argv[])
 
 	while (i < argc)
 	{
-		for (j = 0; argv[i][j] != '\0'; j++)
-		{
-			
-		}
 		sum += atoi(argv[i]);
 		i++;
 	}
 	printf("%d\n", sum);
-	return(0);
+	return (0);
 }
