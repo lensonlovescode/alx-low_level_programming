@@ -12,8 +12,8 @@ char *str_concat(char *s1, char *s2)
 {
 	char *big_str;
 	int length;
-	long unsigned int i;
-	long unsigned int j;
+	unsigned long int i;
+	unsigned long int j;
 
 	if (s1 == NULL)
 	{
@@ -33,7 +33,7 @@ char *str_concat(char *s1, char *s2)
 	{
 		return (NULL);
 	}
-	
+
 	for (i = 0; s1[i] != '\0'; i++)
 	{
 		big_str[i] = s1[i];
