@@ -23,9 +23,13 @@ char *_strdup(char *str)
 
 	length = strlen(str);
 
-	if(str != NULL)
+	if (str != NULL)
 	{
 		ptr = (char *)malloc((length * sizeof(char)) + 1);
+		if (ptr == NULL)
+		{
+			return (NULL);
+		}
 		for (i = 0; i < length; i++)
 		{
 			ptr[i] = str[i];
