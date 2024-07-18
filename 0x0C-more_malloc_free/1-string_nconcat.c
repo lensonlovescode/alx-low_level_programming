@@ -48,7 +48,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 			big_str[i + j] = s2[j];
 			j++;
 		}
-	else
+	else if (n >= strlen(s2))
 	{
 		while (s2[j] != '\0')
 		{
