@@ -39,3 +39,4 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	big_str[i + j] = '\0';
 	return (big_str);
 }
+
