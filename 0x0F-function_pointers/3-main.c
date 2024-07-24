@@ -8,6 +8,7 @@
  */
 int main(int argc, char *argv[])
 {
+	int result;
 	int (*oprt)(int, int);
 
 	if (argc != 4)
@@ -29,6 +30,7 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	printf("%d\n", oprt(atoi(argv[1]), atoi(argv[3])));
+	result = oprt(atoi(argv[1]), atoi(argv[3]));
+	printf("%d\n", result)
 	return (0);
 }
