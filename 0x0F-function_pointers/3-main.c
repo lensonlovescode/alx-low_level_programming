@@ -10,28 +10,28 @@
 int main(int argc, char *argv[])
 {
 	int result;
-	int (*oprt)(int, int);
+	int (*operation)(int, int);
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	if ((argv[2] == '/' || argv[2] == '%') && argv[3] == 0)
+	if ((atoi(argv[2]) == '/' || atoi(argv[2]) == '%') && argv[3] == 0)
 	{
 		printf("Error\n");
 		exit(100);
 	}
 
-	oprt = get_op_func(argv[2]);
+	operation = get_op_func(argv[2]);
 
-	if (!oprt)
+	if (operation == NULL)
 	{
 		printf("Error\n");
 		exit(99);
 	}
 
-	result = oprt(atoi(argv[1]), atoi(argv[3]));
-	printf("%d\n", result)
+	result = operation(atoi(argv[1]), atoi(argv[3]));
+	printf("%d\n", result);
 	return (0);
 }
