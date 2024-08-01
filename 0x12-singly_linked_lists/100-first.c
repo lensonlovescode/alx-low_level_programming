@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * you_are_beat - Function that prints statements before the main function is executed.
+ * you_are_beat - prints statements before the main function is executed.
  * Return: nothing
  */
 __attribute__((constructor))
