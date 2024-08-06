@@ -2,38 +2,34 @@
 /**
  * add_nodeint - adds a node at the bginning of a list
  * @head: a pointer to a pointer to the first node
- * @n: thi integer value to be filled in the list
+ * @n: the integer value to be filled in the list
  * Return: returns the new node
  */
 listint_t *add_nodeint(listint_t **head, const int n)
 {
-	listint_t *new_node, *temp;
+	listint_t *new_head;
 
-	new_node = malloc(sizeof(listint_t));
+	new_head = malloc(sizeof(listint_t));
 
-	new_node->n = n;
-	new_node->next = NULL;
-
-	temp = (*head);
-
-	if (new_node == NULL)
+	if (new_head == NULL)
 	{
 		return (NULL);
 	}
 
 	if ((*head) == NULL)
 	{
-		(*head) = new_node;
-		return (new_node);
-	}
-	else
-	{
-		while (temp->next != NULL)
-		{
-			temp = temp->next;
-		}
-		temp->next = new_node;
+		(*head) = new_head;
+		return (new_head);
 	}
 
-	return (new_node);
+	if (new_head == NULL)
+	{
+		return (NULL);
+	}
+
+	new_head->next = (*head);
+	new_head->n = n;
+	(*head) = new_head;
+
+	return (new_head);
 }
