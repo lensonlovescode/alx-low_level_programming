@@ -1,8 +1,8 @@
 #include "lists.h"
 /**
- * free_listint2 - frees a list and sets the head to NULL and 
+ * free_listint2 - frees a list and sets the head to NULL and
  * reains the original head
- * @head - pointer to the head node
+ * @head: pointer to the head node
  * Return: returns nothing
  *
  */
