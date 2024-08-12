@@ -1,0 +1,33 @@
+0 for standard input (STDIN)
+1 for standard output (STDOUT)
+2 for standard error (STDERR)
+
+STDIN_FILENO for standard input (file descriptor 0).
+STDOUT_FILENO for standard output (file descriptor 1).
+STDERR_FILENO for standard error (file descriptor 2).
+
+library: <fcntl.h> - open&close
+	 <unistd.h> - read&write
+
+int open(const char *pathname, int flags, mode_t mode);
+	pathname: The path to the file.
+	flags: Flags that control the file opening behavior (e.g., read-only, write-only, create if not exists).
+		O_RDONLY - Read-Only:
+		O_WRONLY - Write-Only:
+		O_RDWR - Read-Write:
+		O_CREAT - Create: creates the file i the file does not exist
+		O_APPEND - Append: writes after existing content
+		O_TRUNC - Truncate: removes content if the file exists
+		O_EXCL - Exclusive Creation:
+	mode: The file permission mode if the file is created (e.g., read, write, execute permissions).
+int close(int fileDescriptor);
+	filedescriptor  - file pointer
+ssize_t read(int fileDescriptor, void *buffer, size_t count);
+	fileDescriptor: The file descriptor to read from.
+	buffer: A buffer to store the read data.
+	count: The number of bytes to read.
+ssize_t write(int fileDescriptor, const void *buffer, size_t count);
+	fileDescriptor: The file descriptor to write to.
+	buffer: A buffer containing the data to be written.
+	count: The number of bytes to write.
+
