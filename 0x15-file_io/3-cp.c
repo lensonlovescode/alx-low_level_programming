@@ -7,11 +7,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int _file1;
-	int _file2;
-	int _read;
-	int c1;
-	int c2;
+	int _file1, _file2, _read, c1, c2;
 	char buffer[1024];
 
 	if (argc != 3)
