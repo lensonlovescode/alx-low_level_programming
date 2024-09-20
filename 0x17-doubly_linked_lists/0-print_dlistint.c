@@ -10,6 +10,13 @@ size_t print_dlistint(const dlistint_t *h)
 
 	node_count = 0;
 
+	if (h == NULL)
+	{
+		node_count = 0;
+		printf("%d\n", 0);
+		return (node_count);
+	}
+
 	if (h->next == NULL)
 	{
 		node_count = 1;
