@@ -10,6 +10,8 @@ list_t *add_node_end(list_t **head, const char *str)
 {
 	struct list_s *new_node, *ptr;
 
+
+
 	if ((*head) == NULL)
 	{
 		new_node = malloc(sizeof(list_t));
