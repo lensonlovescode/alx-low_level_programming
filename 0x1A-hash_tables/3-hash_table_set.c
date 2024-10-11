@@ -11,22 +11,30 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *my_node, *chain;
 	unsigned long int index;
 
-	if (ht == NULL)
+	if (ht == NULL || key == NULL || strlen(key) == 0)
 	{
 		return (0);
+	}
+
+	index = key_index((const unsigned char *)key, 1024);
+	chain = ht->array[index];
+
+	if (check_duplicate_key(chain, key, value) == 1)
+	{
+		return (1);
 	}
 	my_node = create_node(key, value);
 	if (my_node == NULL)
 	{
 		return (0);
 	}
-	index = key_index((const unsigned char *)key, 1024);
-	chain = ht->array[index];
+
 	if (chain == NULL)
 	{
 		ht->array[index] = my_node;
 		return (1);
 	}
+
 	my_node->next = chain;
 	ht->array[index] = my_node;
 
@@ -42,11 +50,6 @@ hash_node_t *create_node(const char *key, const char *value)
 {
 	hash_node_t *my_node;
 	char *my_value, *my_key;
-
-	if (key == NULL || value == NULL || strlen(key) == 0)
-	{
-		return (NULL);
-	}
 
 	my_value = strdup(value);
 	if (my_value == NULL)
@@ -73,5 +76,35 @@ hash_node_t *create_node(const char *key, const char *value)
 	my_node->value = my_value;
 	my_node->next = NULL;
 	return (my_node);
+}
+/**
+ * check_duplicate_key - checks for duplicate keys
+ * and replaces value with a new one if found
+ * @chain: head of the linked list at the hash index
+ * @key: the key to check
+ * @value: the new value to update the key with if found
+ * Return: 1 if the key was found and updated, 0 otherwise
+ */
+int check_duplicate_key(hash_node_t *chain, const char *key, const char *value)
+{
+	char *new_value;
+
+	while (chain != NULL)
+	{
+		if (strcmp(chain->key, key) == 0)
+		{
+			new_value = strdup(value);
+			if (new_value == NULL)
+			{
+				return (0);
+			}
+
+			free(chain->value);
+			chain->value = new_value;
+			return (1);
+		}
+		chain = chain->next;
+	}
+	return (0);
 }
 
