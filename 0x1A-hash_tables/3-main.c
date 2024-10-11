@@ -60,22 +60,14 @@ void print_hash_table(const hash_table_t *ht)
 	for (i = 0; i < ht->size; i++)
 	{
 		node = ht->array[i];
-		if (node != NULL)
+		while (node != NULL)
 		{
-			printf("Index[%lu]: ", i);
-			while (node != NULL)
+			if (node->key != NULL && node->value != NULL)
 			{
-				if (node->key == NULL || node->value == NULL)
-				{
-					printf("Error: Key or Value is NULL\n");
-					break;
-				}
-				printf("Key: %s, Value: %s", node->key, node->value);
-				node = node->next;
-				if (node != NULL)
-					printf(" -> ");
+				printf("Key: %s, Value: %s\n", node->key, node->value);
 			}
-			printf("\n");
+			node = node->next;
 		}
 	}
 }
+      

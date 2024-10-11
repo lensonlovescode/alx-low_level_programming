@@ -8,7 +8,7 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *my_node, *chain;
+	hash_node_t *my_node, *node;
 	unsigned long int index;
 
 	printf("\t\t\tAdding Element to table...\n\n");
@@ -17,42 +17,39 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	}
 
-	index = key_index((const unsigned char *)key, 1024);
-	chain = ht->array[index];
+	index = key_index((const unsigned char *)key, ht->size);
+	node = ht->array[index];
 
-	printf("\t\t\t\tPoint 1\n");
-
-	if (chain == NULL)
+	if (node == NULL)
 	{
-		printf("\t\t\t\tPoint 2");
+		printf("Empty node!");
 		my_node = create_node(key, value);
 		if (my_node == NULL)
 		{
 			return (0);
 		}
 		ht->array[index] = my_node;
-		printf("\t\tEmpty chain, element added successfully!\n\n");
-		return (1);
-	}
-	printf("\t\t\tPoint 2\n");
-
-	if (check_duplicate_key(chain, key, value) == 1)
-	{
-		printf("Duplicte found! successfully replaced");
+		printf("Empty chain, element added successfully!");
 		return (1);
 	}
 	else
 	{
+		if (check_duplicate_key(node, key, value) == 1)
+		{
+			printf("Duplicte found! successfully replaced\n");
+			return (1);
+		}
+
 		printf("No duplicates, let's go\n");
 		my_node = create_node(key, value);
 		if (my_node == NULL)
 		{
 			return (0);
 		}
-		my_node->next = chain;
+		my_node->next = node;
 		ht->array[index] = my_node;
+		return (1);
 	}
-	return (1);
 }
 /**
  * create_node - Creates a new node for the hash table.
@@ -105,6 +102,10 @@ int check_duplicate_key(hash_node_t *chain, const char *key, const char *value)
 
 	while (chain != NULL)
 	{
+		if (chain->key == NULL)
+		{
+			return (0);
+		}
 		if (strcmp(chain->key, key) == 0)
 		{
 			new_value = strdup(value);
