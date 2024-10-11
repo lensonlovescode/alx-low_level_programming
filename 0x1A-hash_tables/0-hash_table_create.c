@@ -11,7 +11,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 	unsigned long int j;
 	hash_table_t *my_table;
 
-
+	printf("Creating table...\n\n");
 	my_table = (hash_table_t *)malloc(sizeof(hash_table_t *));
 	if (my_table == NULL)
 	{
@@ -38,6 +38,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 			return (NULL);
 		}
 	}
+	printf("\t\tHash table created successfully!");
 	return (my_table);
 
 }
