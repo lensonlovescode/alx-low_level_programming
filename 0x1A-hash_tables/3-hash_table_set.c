@@ -10,41 +10,68 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *my_node, *chain;
 	unsigned long int index;
-	char *my_value, *my_key;
 
 	if (ht == NULL)
+	{
 		return (0);
-	my_value = strdup(value);
-	my_key = strdup(key);
-	if (key == NULL || value == NULL || strlen(key) == 0)
-		return (0);
-	my_node = (hash_node_t *)malloc(sizeof(hash_node_t *));
+	}
+	my_node = create_node(key, value);
 	if (my_node == NULL)
-		return (0);
-	my_node->key = (char *)malloc(sizeof(char *));
-	if (my_node->key == NULL)
 	{
-		free(my_node);
 		return (0);
 	}
-	my_node->value = (char *)malloc(sizeof(char *));
-	if (my_node->value == NULL)
-	{
-		free(my_node->key);
-		free(my_node);
-		return (0);
-	}
-	my_node->key = my_key;
-	my_node->value = my_value;
-	my_node->next = NULL;
 	index = key_index((const unsigned char *)key, 1024);
 	chain = ht->array[index];
 	if (chain == NULL)
 	{
-		chain = my_node;
+		ht->array[index] = my_node;
 		return (1);
 	}
 	my_node->next = chain;
 	ht->array[index] = my_node;
+
 	return (1);
 }
+/**
+ * create_node - Creates a new node for the hash table.
+ * @key: the key. key can not be an empty string
+ * @value: the value associated with the key. value can be an empty string
+ * Return: pointer to the newly created node, or NULL if failed
+ */
+hash_node_t *create_node(const char *key, const char *value)
+{
+	hash_node_t *my_node;
+	char *my_value, *my_key;
+
+	if (key == NULL || value == NULL || strlen(key) == 0)
+	{
+		return (NULL);
+	}
+
+	my_value = strdup(value);
+	if (my_value == NULL)
+	{
+		return (NULL);
+	}
+
+	my_key = strdup(key);
+	if (my_key == NULL)
+	{
+		free(my_value);
+		return (NULL);
+	}
+
+	my_node = malloc(sizeof(hash_node_t));
+	if (my_node == NULL)
+	{
+		free(my_key);
+		free(my_value);
+		return (NULL);
+	}
+
+	my_node->key = my_key;
+	my_node->value = my_value;
+	my_node->next = NULL;
+	return (my_node);
+}
+
