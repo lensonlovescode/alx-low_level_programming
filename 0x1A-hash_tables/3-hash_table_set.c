@@ -97,10 +97,6 @@ int check_duplicate_key(hash_node_t *chain, const char *key, const char *value)
 
 	while (chain != NULL)
 	{
-		if (chain->key == NULL)
-		{
-			return (0);
-		}
 		if (strcmp(chain->key, key) == 0)
 		{
 			new_value = strdup(value);
