@@ -19,25 +19,32 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	index = key_index((const unsigned char *)key, 1024);
 	chain = ht->array[index];
 
-	if (check_duplicate_key(chain, key, value) == 1)
-	{
-		return (1);
-	}
-	my_node = create_node(key, value);
-	if (my_node == NULL)
-	{
-		return (0);
-	}
-
 	if (chain == NULL)
 	{
+		my_node = create_node(key, value);
+		if (my_node == NULL)
+		{
+			return (0);
+		}
 		ht->array[index] = my_node;
 		return (1);
 	}
 
-	my_node->next = chain;
-	ht->array[index] = my_node;
 
+	if (check_duplicate_key(chain, key, value) == 1)
+	{
+		return (1);
+	}
+	else
+	{
+		my_node = create_node(key, value);
+		if (my_node == NULL)
+		{
+			return (0);
+		}
+		my_node->next = chain;
+		ht->array[index] = my_node;
+	}
 	return (1);
 }
 /**
