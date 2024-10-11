@@ -31,7 +31,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	else
 	{
-		if (check_duplicate_key(node, key, value) == 1)
+		if (check_dup_key(node, key, value) == 1)
 		{
 			return (1);
 		}
@@ -91,7 +91,7 @@ hash_node_t *create_node(const char *key, const char *value)
  * @value: the new value to update the key with if found
  * Return: 1 if the key was found and updated, 0 otherwise
  */
-int check_duplicate_key(hash_node_t *chain, const char *key, const char *value)
+int check_dup_key(hash_node_t *chain, const char *key, const char *value)
 {
 	char *new_value;
 
